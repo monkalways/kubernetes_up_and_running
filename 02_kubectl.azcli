@@ -1,0 +1,7 @@
+kubectl get nodes
+
+kubectl run kuard --generator=run-pod/v1 --image=gcr.io/kuar-demo/kuard-amd64:blue
+
+kubectl get pods
+
+kubectl delete pods/kuard
