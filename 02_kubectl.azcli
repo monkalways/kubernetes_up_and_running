@@ -1,7 +1,9 @@
 kubectl get nodes
 
-kubectl run kuard --generator=run-pod/v1 --image=gcr.io/kuar-demo/kuard-amd64:blue
+# kubectl run aspnetapp --generator=run-pod/v1 --image=monkalways/aspnetapp
 
-kubectl get pods
+kubectl run demo --image=monkalways/aspnetapp --port=9999 --labels app=demo
 
-kubectl delete pods/kuard
+kubectl get pods --selector app=demo
+
+kubectl delete deployments demo
