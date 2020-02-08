@@ -2,7 +2,11 @@ kubectl get nodes
 
 # kubectl run aspnetapp --generator=run-pod/v1 --image=monkalways/aspnetapp
 
-kubectl run demo --image=monkalways/aspnetapp --port=9999 --labels app=demo
+# kubectl run demo --image=monkalways/aspnetapp --port=80 --labels app=demo
+
+kubectl apply -f kubernetes/deployment.yaml
+kubectl apply -f kubernetes/service.yaml
+kubectl port-forward services/demo-service 8080:8080
 
 kubectl get pods --selector app=demo
 
